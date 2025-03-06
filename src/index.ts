@@ -17,7 +17,9 @@ import { stocks } from "stock-api";
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
 		const url = new URL(request.url);
+		console.debug(`url: ${url}`);
 		const code = url.searchParams.get('code');
+		console.debug(`code: ${code}`);
 
 		if (!code) {
 			return new Response('Not Found: code parameter is required', {
